@@ -1,4 +1,5 @@
 # Reddit Client
+
 -----
 This is a Codecademy portfolio project showcasing the various languages, techniques and patterns taught in the Front-End part of the Full-Stack Engineering path.
 
@@ -19,6 +20,7 @@ TBA
 ## Features
 
 TBA
+
 ## Future work
 
 TBA
