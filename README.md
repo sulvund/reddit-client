@@ -1,9 +1,6 @@
 # Reddit Client
 
------
 This is a Codecademy portfolio project showcasing the various languages, techniques and patterns taught in the Front-End part of the Full-Stack Engineering path.
-
------
 
 ## Wireframes
 
@@ -21,19 +18,20 @@ Designed in Figma with the Bootstrap UI Kit template
 
 ## Features
 
-TBA
+No features in production yet
 
 ## Future work
 
-TBA
+* Display data from the Reddit JSON API
+* Add search capabilities
 
 -----
 
 ### Project Requirements
 
-* Build the application using React and Redux
+* ~~Build the application using React and Redux~~
 * ~~Version control your application with Git and host the repository on GitHub~~
-* Use a project management tool (GitHub Projects, Trello, etc.) to plan your work
+* ~~Use a project management tool (GitHub Projects, Trello, etc.) to plan your work~~
 * ~~Write a README (using Markdown) that documents your project including:~~
   * Wireframes
   * ~~Technologies used~~
