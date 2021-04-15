@@ -21,7 +21,9 @@ function App() {
                 <FormControl type="text" placeholder="Search" className=""></FormControl>
               </Col>
               <Col>
-                <Button variant="outline-dark">S</Button>
+                <Button variant="outline-dark">
+                  <i class="bi bi-search"></i>
+                </Button>
               </Col>
             </Form.Row>
           </Form>
