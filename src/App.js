@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <Navbar bg="light">
+      <Navbar id="navbar" bg="light">
         <Container>
           <Navbar.Brand href="#home">monoReddit</Navbar.Brand>
           <Form>
