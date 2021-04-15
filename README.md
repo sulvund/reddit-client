@@ -15,6 +15,7 @@ Designed in Figma with the Bootstrap UI Kit template
 * JavaScript
 * React
 * Redux
+* Bootstrap
 
 ## Features
 
