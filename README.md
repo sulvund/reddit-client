@@ -7,7 +7,9 @@ This is a Codecademy portfolio project showcasing the various languages, techniq
 
 ## Wireframes
 
-TBA
+![Wireframe](https://i.imgur.com/4P4Ir5c.png)
+
+Designed in Figma with the Bootstrap UI Kit template
 
 ## Technologies used
 
