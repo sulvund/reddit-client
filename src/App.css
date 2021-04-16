@@ -1,3 +1,41 @@
+:root {
+  --light-grey: #ABB5BE;
+  --dark-grey: #54595E;
+}
+
 #navbar {
-  box-shadow: 0px 0px 25px 0px rgba(43, 43, 43, 0.5);
+  box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+#posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post {
+  height: auto;
+  width: 600px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #F8F9FA;
+  box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+}
+.content {
+  height: 300px;
+  width: auto;
+  background-color: var(--light-grey);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+.attribute {
+  margin-bottom: 0;
+  color: var(--light-grey);
+}
+.attribute > i {
+  margin-left: 5px;
+  color: var(--dark-grey);
 }
