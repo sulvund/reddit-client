@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Contentbox = () => {
+export const Post = () => {
     const [title, setTitle] = useState('Test');
     const [content, setContent] = useState('');
     const [votes, setVotes] = useState(20);

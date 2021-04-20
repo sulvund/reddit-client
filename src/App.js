@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { Navigationbar } from './components/Navigationbar'
-import { Contentbox } from './components/Contentbox'
+import { Post } from './features/post/Post'
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const data = fetchdata;
+    return data;
+  });
+
+  const fetchdata = async () =>  {
+    const response = await fetch('https://www.reddit.com/r/popular.json');
+    const json = await response.json()
+    return json;
+  }
+
   return (
     <div>
       <Navigationbar />
       <div id='posts'>
-        <Contentbox />
-        <Contentbox />
+        <Post />
+        <Post />
       </div>
     </div>
   );

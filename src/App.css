@@ -5,6 +5,8 @@
 
 #navbar {
   box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+  margin-bottom: 20px;
 }
 #posts {
   display: flex;
@@ -12,6 +14,7 @@
   align-items: center;
 }
 .post {
+  z-index: 2;
   height: auto;
   width: 600px;
   padding: 20px;
