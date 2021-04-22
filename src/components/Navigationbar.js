@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   Navbar,
@@ -32,7 +33,7 @@ export const Navigationbar = () => {
   return (
     <Navbar id="navbar" bg="light">
       <Container>
-        <Navbar.Brand href="#home">monoReddit</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'>monoReddit</Navbar.Brand>
         <Form>
           <Form.Row>
             <Col>
