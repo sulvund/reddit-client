@@ -5,6 +5,17 @@ export const Post = ({ post }) => {
     const now = new Date();
     const createdHours = (now - created) / (1000 * 60 * 60)
 
+    let timeAgo;
+    if (createdHours > 8765) {
+        timeAgo = `${Math.round(createdHours / 8765)} years ago`;
+    } else if (createdHours > 720) {
+        timeAgo = `${Math.round(createdHours / 720)} months ago`;
+    } else if (createdHours > 168) {
+        timeAgo = `${Math.round(createdHours / 168)} weeks ago`;
+    } else {
+        timeAgo = `${Math.round(createdHours)} hours ago`;
+    }
+
     let content;
     switch (post.post_hint) {
         case 'image':
@@ -17,11 +28,6 @@ export const Post = ({ post }) => {
             } else {
                 link = post.url;
             }
-
-            /* let thumbnail;
-            if (post.thumbnail) {
-                thumbnail = <img className='thumnail' src={post.thumbnail} alt=''></img>;
-            } */
 
             content = (
                 <>
@@ -76,7 +82,7 @@ export const Post = ({ post }) => {
                 <i className="bi bi-person"></i>
             </p>
             <p className='attribute'>
-                {Math.round(createdHours)} hours ago
+                {timeAgo}
                 <i className="bi bi-clock"></i>
             </p>
             <p className='attribute'>
