@@ -22,6 +22,13 @@ export const Navigationbar = () => {
     )
   }
 
+  const handleKeyPress = (e) => {
+    console.log(e)
+    if(e.key === "Enter"){
+      handleSearchSubmit(e)
+    }
+  }
+
   return (
     <Navbar id="navbar" bg="light">
       <Container>
@@ -30,9 +37,11 @@ export const Navigationbar = () => {
           <Form.Row>
             <Col>
               <FormControl
+                id='searchField'
                 type="text"
                 placeholder="Search"
                 className=""
+                onKeyPress={handleKeyPress}
                 onChange={(e) => setSearchTerm(e.currentTarget.value)}
               ></FormControl>
             </Col>

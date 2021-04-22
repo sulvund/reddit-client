@@ -8,6 +8,9 @@
   z-index: 1;
   margin-bottom: 20px;
 }
+#searchField {
+  width: 300px;
+}
 #loading {
   text-align: center;
 }
@@ -36,6 +39,7 @@
   width: 150px;
   height: auto;
   border-radius: 3px;
+  margin-bottom: 16px;
 }
 .flex-row {
   display: flex;
