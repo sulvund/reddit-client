@@ -7,9 +7,7 @@ const App = () => {
   return (
     <div>
       <Navigationbar />
-      <div id='posts'>
-        <Posts />
-      </div>
+      <Posts />
     </div>
   );
 }

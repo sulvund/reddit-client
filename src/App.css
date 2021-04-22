@@ -8,6 +8,10 @@
   z-index: 1;
   margin-bottom: 20px;
 }
+#loading {
+  text-align: center;
+}
+
 #posts {
   display: flex;
   flex-direction: column;
