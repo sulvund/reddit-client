@@ -23,7 +23,7 @@ export const Navigationbar = () => (
           </Col>
           <Col>
             <Button variant="outline-dark">
-              <i class="bi bi-search"></i>
+              <i className="bi bi-search"></i>
             </Button>
           </Col>
         </Form.Row>

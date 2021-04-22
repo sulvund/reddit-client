@@ -24,7 +24,6 @@
   border-radius: 5px;
 }
 .content {
-  height: 300px;
   width: auto;
   background-color: var(--light-grey);
   margin-top: 20px;
@@ -41,4 +40,13 @@
 .attribute > i {
   margin-left: 5px;
   color: var(--dark-grey);
+}
+
+img {
+  width: 100%;
+}
+
+.subreddit {
+  color: var(--dark-grey);
+  font-size: small;
 }
