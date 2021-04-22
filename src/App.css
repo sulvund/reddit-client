@@ -29,9 +29,13 @@
 }
 .content {
   width: auto;
-  background-color: var(--light-grey);
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.thumnail {
+  width: 150px;
+  height: auto;
+  border-radius: 3px;
 }
 .flex-row {
   display: flex;
