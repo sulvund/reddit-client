@@ -1,6 +1,13 @@
 import React from 'react';
 
 export const Post = ({ post }) => {
+    let votes;
+    if (post.ups > 1000) {
+        votes = `${Math.round(post.ups/1000)}K`
+    } else {
+        votes = post.ups;
+    }
+
     const created = new Date(post.created_utc * 1000);
     const now = new Date();
     const createdHours = (now - created) / (1000 * 60 * 60)
@@ -12,6 +19,8 @@ export const Post = ({ post }) => {
         timeAgo = `${Math.round(createdHours / 720)} months ago`;
     } else if (createdHours > 168) {
         timeAgo = `${Math.round(createdHours / 168)} weeks ago`;
+    } else if (createdHours > 24) {
+        timeAgo = `${Math.round(createdHours / 24)} days ago`;
     } else {
         timeAgo = `${Math.round(createdHours)} hours ago`;
     }
@@ -73,7 +82,7 @@ export const Post = ({ post }) => {
 
         <div className='flex-row'>
             <p className='attribute'>
-                {Math.round(post.ups/1000)}K
+                {votes}
                 <i className="bi bi-arrow-up"></i>
                 <i className="bi bi-arrow-down"></i>
             </p>
