@@ -24,7 +24,6 @@ export const Navigationbar = () => {
   }
 
   const handleKeyPress = (e) => {
-    console.log(e)
     if(e.key === "Enter"){
       handleSearchSubmit(e)
     }
