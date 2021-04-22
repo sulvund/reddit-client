@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const Post = ({ post }) => {
-    //const [title, setTitle] = useState('Test');
-    const [content, setContent] = useState('');
-    //const [votes, setVotes] = useState(20);
-    //const [poster, setPoster] = useState('sulvund');
-    //const [timeAgo, setTimeAgo] = useState('2H');
-    //const [comments, setComments] = useState(729);
-
     const created = new Date(post.created_utc * 1000);
     const now = new Date();
     const createdHours = (now - created) / (1000 * 60 * 60)
