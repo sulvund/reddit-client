@@ -2,7 +2,9 @@
   --light-grey: #ABB5BE;
   --dark-grey: #54595E;
 }
-
+/* img {
+  filter: grayscale(100%);
+} */
 #navbar {
   box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
   z-index: 1;
