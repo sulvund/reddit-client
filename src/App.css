@@ -10,11 +10,30 @@
   z-index: 1;
   margin-bottom: 20px;
 }
+#brand {
+  font-size: 1.25em;
+}
+.no-decor, .no-decor:link, .no-decor:visited, .no-decor:hover, .no-decor:focus {
+  text-decoration: none;
+}
+#page-title {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-bottom: 0;
+  color: black;
+}
+#subreddit {
+  color: var(--dark-grey);
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+}
 #searchField {
   width: 300px;
 }
 #loading {
   text-align: center;
+  margin-top: 40px;
 }
 
 #posts {
@@ -23,7 +42,6 @@
   align-items: center;
 }
 .post {
-  z-index: 2;
   height: auto;
   width: 600px;
   padding: 20px;
@@ -31,6 +49,9 @@
   background-color: #F8F9FA;
   box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
   border-radius: 5px;
+}
+.post-title, .post-title:link, .post-title:visited, .post-title:hover, .post-title:focus  {
+  color: black;
 }
 .content {
   width: auto;
@@ -60,7 +81,7 @@ img {
   width: 100%;
 }
 
-.subreddit {
+.post-subreddit, .post-subreddit:link , .post-subreddit:visited , .post-subreddit:hover , .post-subreddit:focus {
   color: var(--dark-grey);
   font-size: small;
 }

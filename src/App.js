@@ -1,19 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import "./App.css";
 import { Navigationbar } from './components/Navigationbar'
-import { Test } from './components/test'
-import { Posts } from './features/post/Posts'
+import { Post } from './features/post/Post'
+import { Feed } from './features/feed/Feed'
 
 const App = () => {
   return (
     <Router>
       <Navigationbar />
       <Switch>
-          <Route exact path="/">
-            <Posts />
+          <Redirect exact from="/" to="/r/popular" />
+          <Route path="/r/:subreddit/:type/:id/:title_id">
+            <Post />
           </Route>
-          <Route path="/post/:id" children={<Test />} />
+          <Route path="/:r/:subreddit">
+              <Feed />
+          </Route>
           <Route path="*">
             <p>404 - could not be found</p>
           </Route>

@@ -1,58 +1,36 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from 'react-redux';
 
-export const fetchPosts = createAsyncThunk(
-    'posts/fetchPosts',
-    async (searchTerm) => {
-
-        let slug;
-        if (searchTerm) {
-            slug = `/search.json?q=${encodeURI(searchTerm)}&restrict_sr=on&include_over_18=on&sort=relevance&t=all`;
-        } else {
-            slug = '.json';
-        }
-
+export const fetchPost = createAsyncThunk(
+    'post/fetchPost',
+    async () => {
         const response = await fetch(`https://www.reddit.com/r/popular${slug}`);
         const json = await response.json()
         return json.data.children;
     }
-);
+)
 
 export const postSlice = createSlice({
-    name: 'posts',
+    name: 'post',
     initialState: {
-        allPosts: [],
-        searchTerm: '',
+        post: undefined,
         isLoading: false,
         hasError: false,
     },
-    reducers: {
-        updateSearchTerm: (state, action) => {
-            state.searchTerm = action.payload;
-        }
-    },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchPosts.pending, (state) => {
+            .addCase(fetchPost.pending, (state) => {
                 state.isLoading = true;
                 state.hasError = false;
             })
-            .addCase(fetchPosts.fulfilled, (state, action) => {
+            .addCase(fetchPost.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasError = false;
-                state.allPosts = action.payload;
+                state.post = action.payload;
             })
-            .addCase(fetchPosts.rejected, (state) => {
+            .addCase(fetchPost.rejected, (state) => {
                 state.isLoading = false;
                 state.hasError = true;
-                state.posts = [];
+                state.post = undefined;
             })
     }
-});
-
-export const { updateSearchTerm } = postSlice.actions;
-
-export const selectSearchTerm = (state) => state.posts.searchTerm;
-export const selectAllPosts = (state) => state.posts.allPosts;
-export const isLoadingPosts = (state) => state.posts.isLoading;
-
-export default postSlice.reducer;
+})

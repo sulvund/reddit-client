@@ -9,18 +9,21 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { useDispatch } from 'react-redux'
-import { updateSearchTerm } from '../features/post/postSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { updateSearchTerm, selectSubreddit } from '../features/feed/feedSlice';
 
 export const Navigationbar = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
+  const subreddit = useSelector(selectSubreddit);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     dispatch(
       updateSearchTerm(searchTerm)
-    )
+    );
+    setSearchTerm('');
   }
 
   const handleKeyPress = (e) => {
@@ -30,9 +33,12 @@ export const Navigationbar = () => {
   }
 
   return (
-    <Navbar id="navbar" bg="light">
+    <Navbar id="navbar" bg="light" sticky="top">
       <Container>
-        <Navbar.Brand as={Link} to='/'>monoReddit</Navbar.Brand>
+        <div id='brand'>  
+            <Link className='no-decor' to='/r/popular'><p id='page-title'>monoReddit</p></Link>
+            <Link className='no-decor' to={`/${subreddit}`}><span id='subreddit'>/{subreddit}</span></Link>         
+        </div>
         <Form>
           <Form.Row>
             <Col>
