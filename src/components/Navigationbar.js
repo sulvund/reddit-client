@@ -28,7 +28,7 @@ export const Navigationbar = () => {
 
   const handleKeyPress = (e) => {
     if(e.key === "Enter"){
-      handleSearchSubmit(e)
+      handleSearchSubmit(e);
     }
   }
 
@@ -47,6 +47,7 @@ export const Navigationbar = () => {
                 type="text"
                 placeholder="Search"
                 className=""
+                value={searchTerm}
                 onKeyPress={handleKeyPress}
                 onChange={(e) => setSearchTerm(e.currentTarget.value)}
               ></FormControl>

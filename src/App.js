@@ -14,11 +14,11 @@ const App = () => {
           <Route path="/r/:subreddit/:type/:id/:title_id">
             <Post />
           </Route>
-          <Route path="/:r/:subreddit">
+          <Route path="/r/:subreddit">
               <Feed />
           </Route>
           <Route path="*">
-            <p>404 - could not be found</p>
+            <p className='center'>404 - could not be found</p>
           </Route>
       </Switch>
     </Router>

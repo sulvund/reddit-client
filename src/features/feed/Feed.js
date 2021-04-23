@@ -20,16 +20,16 @@ export const Feed = () => {
     }, [dispatch, subreddit, searchTerm])
 
     if (isLoadingPosts) {
-        return <p id='loading'>Loading posts</p>
+        return <p className='center'>Loading posts</p>
     }
     if (hasErrorPosts) {
-        return <p id='loading'>A network error occured</p>
+        return <p className='center'>A network error occured</p>
     }
     
     return (
-        <div id='posts'>
+        <div id='feed'>
             {posts.map(post => (
-                <PostInFeed key={post.data.id} post={post.data}/>
+                <PostInFeed key={post.data.id} post={post.data} type='feed'/>
             ))}
         </div>
     )

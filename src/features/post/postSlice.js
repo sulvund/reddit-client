@@ -1,18 +1,18 @@
-import { createAsyncThunk, createSlice } from 'react-redux';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchPost = createAsyncThunk(
     'post/fetchPost',
-    async () => {
-        const response = await fetch(`https://www.reddit.com/r/popular${slug}`);
+    async (slug) => {
+        const response = await fetch(`https://www.reddit.com/r/${slug}.json`);
         const json = await response.json()
-        return json.data.children;
+        return json[0].data.children[0].data;
     }
 )
 
 export const postSlice = createSlice({
     name: 'post',
     initialState: {
-        post: undefined,
+        post: {},
         isLoading: false,
         hasError: false,
     },
@@ -30,7 +30,14 @@ export const postSlice = createSlice({
             .addCase(fetchPost.rejected, (state) => {
                 state.isLoading = false;
                 state.hasError = true;
-                state.post = undefined;
+                state.post = {};
             })
     }
 })
+
+
+export const selectPost = (state) => state.post.post;
+export const isLoading = (state) => state.post.isLoading;
+export const hasError = (state) => state.post.hasError;
+
+export default postSlice.reducer;

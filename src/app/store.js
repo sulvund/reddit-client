@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import postReducer from  '../features/feed/feedSlice';
+import feedReducer from  '../features/feed/feedSlice';
+import postReducer from  '../features/post/postSlice';
 
 export const store = configureStore({
   reducer: {
-    posts: postReducer,
+    posts: feedReducer,
+    post: postReducer,
   },
 });
