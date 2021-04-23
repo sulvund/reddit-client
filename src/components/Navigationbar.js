@@ -36,7 +36,7 @@ export const Navigationbar = () => {
     <Navbar id="navbar" bg="light" sticky="top">
       <Container>
         <div id='brand'>  
-            <Link className='no-decor' to='/r/popular'><p id='page-title'>monoReddit</p></Link>
+            <Link className='no-decor' to='/r/popular'><p id='page-title'>RedditMono</p></Link>
             <Link className='no-decor' to={`/${subreddit}`}><span id='subreddit'>/{subreddit}</span></Link>         
         </div>
         <Form>
