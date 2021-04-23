@@ -44,7 +44,7 @@ Designed in Figma with the Bootstrap UI Kit template
 * Write end-to-end tests for your application
 * ~~Users can use the application on any device (desktop to mobile)~~
 * ~~Users can use the application on any modern browser~~
-* Users can access your application at a URL
+* ~~Users can access your application at a URL~~
 * Users see an initial view of the data when first visiting the app
 * ~~Users can search the data using terms~~
 * Users can filter the data based on categories that are predefined
