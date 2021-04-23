@@ -48,7 +48,7 @@ Designed in Figma with the Bootstrap UI Kit template
 * Users see an initial view of the data when first visiting the app
 * ~~Users can search the data using terms~~
 * Users can filter the data based on categories that are predefined
-* Users are shown a detail view (modal or new page/route) when they select an item
+* ~~Users are shown a detail view (modal or new page/route) when they select an item~~
 * Users are delighted with a cohesive design system
 * Users are delighted with animations and transitions
 * Users are able to leave an error state
