@@ -87,15 +87,20 @@ export const Post = ({ post }) => {
     const [voteValue, setVoteValue ] = useState(0);
 
     const onHandleVote = (newValue) => {
-        if (newValue === voteValue) {
-          setVoteValue(0);
-        } else if (newValue === 1) {
-          setVoteValue(1);
-        } else {
-          setVoteValue(-1);
-        }
-      };
+      if (newValue === voteValue) {
+        setVoteValue(0);
+      } else if (newValue === 1) {
+        setVoteValue(1);
+      } else {
+        setVoteValue(-1);
+      }
+    };
     
+    const renderComments = () => {
+      return (
+        <p>test render</p>
+      )
+    }
 
     return (
       <div className="post">
@@ -137,6 +142,7 @@ export const Post = ({ post }) => {
             <i className="bi bi-chat-square" />
           </p>
         </div>
+        {renderComments()}
       </div>
     );
 };
