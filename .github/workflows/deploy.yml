@@ -12,11 +12,11 @@ jobs:
       # Checkout repository
       - uses: actions/checkout@v1
 
-      # Install node version 8
+      # Install node version 12
       - name: Install node
         uses: actions/setup-node@v1
         with:
-          node-version: 8
+          node-version: 12
 
        # Install npm packages
       - name: Install packages
