@@ -9,10 +9,7 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-          <Redirect exact from="/" to="/r/popular" />
-          <Route path="/r/:subreddit/:type/:id/:title_id">
-            <></>
-          </Route>
+          <Redirect exact from="/" to="/r/pics" />
           <Route path="/r/:subreddit">
               <Feed />
           </Route>

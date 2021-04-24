@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllPosts, isLoading, hasError, fetchFeed, selectSearchTerm, updateSubreddit } from './feedSlice';
+import { getPosts, isLoading, hasError, fetchFeed, getSearchTerm, setSubreddit } from './feedSlice';
 import { PostInFeed } from '../Post/Post';
 import { useParams } from 'react-router-dom';
 
 export const Feed = () => {
     const dispatch = useDispatch();
     
-    const posts = useSelector(selectAllPosts);
-    const searchTerm = useSelector(selectSearchTerm);
+    const posts = useSelector(getPosts);
+    const searchTerm = useSelector(getSearchTerm);
     const isLoadingPosts = useSelector(isLoading);
     const hasErrorPosts = useSelector(hasError);
 
@@ -16,7 +16,7 @@ export const Feed = () => {
 
     useEffect(() => {
         dispatch(fetchFeed([`r/${subreddit}`, searchTerm]));
-        dispatch(updateSubreddit(`r/${subreddit}`));
+        dispatch(setSubreddit(`r/${subreddit}`));
     }, [dispatch, subreddit, searchTerm])
 
     if (isLoadingPosts) {

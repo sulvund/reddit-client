@@ -3,6 +3,6 @@ import feedReducer from  '../containers/Feed/feedSlice';
 
 export const store = configureStore({
   reducer: {
-    posts: feedReducer,
+    feed: feedReducer,
   },
 });

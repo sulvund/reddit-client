@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchFeed = createAsyncThunk(
-    'posts/fetchFeed',
+    'feed/fetchFeed',
     async ([subreddit, searchTerm]) => {
+
         let slug;
         if (searchTerm) {
             slug = `/search.json?q=${encodeURI(searchTerm)}&restrict_sr=on&include_over_18=on&sort=relevance&t=all`;
@@ -17,19 +18,19 @@ export const fetchFeed = createAsyncThunk(
 );
 
 export const feedSlice = createSlice({
-    name: 'posts',
+    name: 'feed',
     initialState: {
-        subreddit: 'r/popular',
-        allPosts: [],
+        subreddit: 'r/pics',
+        posts: [],
         searchTerm: '',
         isLoading: false,
-        hasError: false,
+        error: false,
     },
     reducers: {
-        updateSearchTerm: (state, action) => {
+        setSearchTerm: (state, action) => {
             state.searchTerm = action.payload;
         },
-        updateSubreddit: (state, action) => {
+        setSubreddit: (state, action) => {
             state.subreddit = action.payload;
         }
     },
@@ -37,27 +38,27 @@ export const feedSlice = createSlice({
         builder
             .addCase(fetchFeed.pending, (state) => {
                 state.isLoading = true;
-                state.hasError = false;
+                state.error = false;
             })
             .addCase(fetchFeed.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.hasError = false;
-                state.allPosts = action.payload;
+                state.error = false;
+                state.posts = action.payload;
             })
             .addCase(fetchFeed.rejected, (state) => {
                 state.isLoading = false;
-                state.hasError = true;
+                state.error = true;
                 state.posts = [];
             })
     }
 });
 
-export const { updateSearchTerm, updateSubreddit } = feedSlice.actions;
+export const { setSearchTerm, setSubreddit } = feedSlice.actions;
 
-export const selectSubreddit = (state) => state.posts.subreddit;
-export const selectAllPosts = (state) => state.posts.allPosts;
-export const selectSearchTerm = (state) => state.posts.searchTerm;
-export const isLoading = (state) => state.posts.isLoading;
-export const hasError = (state) => state.posts.hasError;
+export const getSubreddit = (state) => state.feed.subreddit;
+export const getPosts = (state) => state.feed.posts;
+export const getSearchTerm = (state) => state.feed.searchTerm;
+export const isLoading = (state) => state.feed.isLoading;
+export const hasError = (state) => state.feed.error;
 
 export default feedSlice.reducer;

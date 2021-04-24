@@ -10,18 +10,18 @@ import {
 } from "react-bootstrap";
 
 import { useDispatch, useSelector } from 'react-redux'
-import { updateSearchTerm, selectSubreddit } from '../Feed/feedSlice';
+import { setSearchTerm, getSubreddit } from '../Feed/feedSlice';
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTermLocal, setSearchTermLocal] = useState('');
 
-  const subreddit = useSelector(selectSubreddit);
+  const subreddit = useSelector(getSubreddit);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      updateSearchTerm(searchTerm)
+      setSearchTerm(searchTermLocal)
     );
     setSearchTerm('');
   }
@@ -47,9 +47,9 @@ export const Header = () => {
                 type="text"
                 placeholder="Search"
                 className=""
-                value={searchTerm}
+                value={searchTermLocal}
                 onKeyPress={handleKeyPress}
-                onChange={(e) => setSearchTerm(e.currentTarget.value)}
+                onChange={(e) => setSearchTermLocal(e.currentTarget.value)}
               ></FormControl>
             </Col>
             <Col>
