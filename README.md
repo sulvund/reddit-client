@@ -1,6 +1,8 @@
-# Reddit Client
+# RedditMono Client
 
 This is a Codecademy portfolio project showcasing the various languages, techniques and patterns taught in the Front-End part of the Full-Stack Engineering path.
+
+Visit the live version of [RedditMono](https://redditmono.surge.sh/)
 
 ## Wireframes
 
@@ -8,7 +10,7 @@ This is a Codecademy portfolio project showcasing the various languages, techniq
 
 Designed in Figma with the Bootstrap UI Kit template
 
-## Technologies used
+## Technologies and tools
 
 * HTML
 * CSS
@@ -16,17 +18,18 @@ Designed in Figma with the Bootstrap UI Kit template
 * React
 * Redux
 * Bootstrap
+* Surge (automatic deployment using Github Actions)
 
 ## Features
 
 * Display data from the Reddit JSON API
-  * Display post feed
+  * Display feed and filter on subreddits
+  * Display detail view of post
 * Search capabilities
 
 ## Future work
 
-* Show detail view of post
-* Filter based on categories
+* Endless scrolling
 
 -----
 
