@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Switch>
           <Redirect exact from="/" to="/r/pics" />
-          <Route path="/r/:subreddit">
+          <Route path="/r/:subredditURL">
               <Feed />
           </Route>
           <Route path="*">

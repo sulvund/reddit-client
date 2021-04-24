@@ -55,9 +55,9 @@ export const feedSlice = createSlice({
 
 export const { setSearchTerm, setSubreddit } = feedSlice.actions;
 
-export const getSubreddit = (state) => state.feed.subreddit;
-export const getPosts = (state) => state.feed.posts;
-export const getSearchTerm = (state) => state.feed.searchTerm;
+export const selectSubreddit = (state) => state.feed.subreddit;
+export const selectPosts = (state) => state.feed.posts;
+export const selectSearchTerm = (state) => state.feed.searchTerm;
 export const isLoading = (state) => state.feed.isLoading;
 export const hasError = (state) => state.feed.error;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const PostInFeed = ({ post, type }) => {
+export const Post = ({ post, type }) => {
     let votes;
     if (post.ups > 1000) {
         votes = `${Math.round(post.ups/1000)}K`
@@ -96,20 +96,20 @@ export const PostInFeed = ({ post, type }) => {
         <div className='flex-row'>
             <p className='attribute'>
                 {votes}
-                <i className="bi bi-arrow-up"></i>
-                <i className="bi bi-arrow-down"></i>
+                <i className="bi bi-arrow-up"/>
+                <i className="bi bi-arrow-down"/>
             </p>
             <p className='attribute'>
                 {post.author}
-                <i className="bi bi-person"></i>
+                <i className="bi bi-person"/>
             </p>
             <p className='attribute'>
                 {timeAgo}
-                <i className="bi bi-clock"></i>
+                <i className="bi bi-clock"/>
             </p>
             <p className='attribute'>
                 {post.num_comments}
-                <i className="bi bi-chat-square"></i>
+                <i className="bi bi-chat-square"/>
             </p>
         </div>
     </div>

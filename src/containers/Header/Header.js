@@ -10,13 +10,13 @@ import {
 } from "react-bootstrap";
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setSearchTerm, getSubreddit } from '../Feed/feedSlice';
+import { setSearchTerm, selectSubreddit } from '../Feed/feedSlice';
 
 export const Header = () => {
   const dispatch = useDispatch();
   const [searchTermLocal, setSearchTermLocal] = useState('');
 
-  const subreddit = useSelector(getSubreddit);
+  const subreddit = useSelector(selectSubreddit);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ export const Header = () => {
     <Navbar id="navbar" bg="light" sticky="top">
       <Container>
         <div id='brand'>  
-            <Link className='no-decor' to='/r/popular'><p id='page-title'>RedditMono</p></Link>
+            <Link className='no-decor' to='/r/pics'><p id='page-title'>RedditMono</p></Link>
             <Link className='no-decor' to={`/${subreddit}`}><span id='subreddit'>/{subreddit}</span></Link>         
         </div>
         <Form>
