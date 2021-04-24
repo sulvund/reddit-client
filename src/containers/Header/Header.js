@@ -10,9 +10,9 @@ import {
 } from "react-bootstrap";
 
 import { useDispatch, useSelector } from 'react-redux'
-import { updateSearchTerm, selectSubreddit } from '../features/feed/feedSlice';
+import { updateSearchTerm, selectSubreddit } from '../Feed/feedSlice';
 
-export const Navigationbar = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 

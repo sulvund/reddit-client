@@ -2,20 +2,21 @@
   --light-grey: #ABB5BE;
   --dark-grey: #54595E;
 }
-/* img {
-  filter: grayscale(100%);
-} */
+
 #navbar {
   box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
   z-index: 1;
   margin-bottom: 20px;
 }
+
 #brand {
   font-size: 1.25em;
 }
+
 .no-decor, .no-decor:link, .no-decor:visited, .no-decor:hover, .no-decor:focus {
   text-decoration: none;
 }
+
 #page-title {
   display: inline-block;
   padding-top: .3125rem;
@@ -23,6 +24,7 @@
   margin-bottom: 0;
   color: black;
 }
+
 #subreddit {
   color: var(--dark-grey);
   padding-top: .3125rem;
@@ -63,20 +65,19 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .thumnail {
   width: 150px;
   height: auto;
   border-radius: 3px;
   margin-bottom: 16px;
 }
+
 .flex-row {
   display: flex;
   justify-content: space-between;
 }
-.attribute {
-  margin-bottom: 0;
-  color: var(--light-grey);
-}
+
 .attribute > i {
   margin-left: 5px;
   color: var(--dark-grey);

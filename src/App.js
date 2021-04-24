@@ -1,18 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import "./App.css";
-import { Navigationbar } from './components/Navigationbar'
-import { Post } from './features/post/Post'
-import { Feed } from './features/feed/Feed'
+import { Header } from './containers/Header/Header'
+import { Feed } from './containers/Feed/Feed'
 
 const App = () => {
   return (
     <Router>
-      <Navigationbar />
+      <Header />
       <Switch>
           <Redirect exact from="/" to="/r/popular" />
           <Route path="/r/:subreddit/:type/:id/:title_id">
-            <Post />
+            <></>
           </Route>
           <Route path="/r/:subreddit">
               <Feed />

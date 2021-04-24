@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllPosts, isLoading, hasError, fetchFeed, selectSearchTerm, updateSubreddit } from './feedSlice';
-import { PostInFeed } from './PostInFeed';
+import { PostInFeed } from '../Post/Post';
 import { useParams } from 'react-router-dom';
 
 export const Feed = () => {
