@@ -87,6 +87,13 @@
   color: var(--dark-grey);
 }
 
+.bi-arrow-up.active {
+  color: green;
+}
+.bi-arrow-down.active {
+  color: red;
+}
+
 img {
   width: 100%;
 }

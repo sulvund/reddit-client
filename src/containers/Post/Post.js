@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Post = ({ post }) => {
@@ -84,34 +84,59 @@ export const Post = ({ post }) => {
             break;
     }
 
-    return (
-    <div className='post'>
-        {/* create link to subreddit and update header */}
-        <Link className='post-subreddit' to={`/${post.subreddit_name_prefixed}`}><p>{post.subreddit_name_prefixed}</p></Link>
-        <Link className='post-title' to={post.permalink}><h5>{post.title}</h5></Link>
-        <div className='content'>
-            {content}
-        </div>
+    const [voteValue, setVoteValue ] = useState(0);
 
-        <div className='flex-row'>
-            <p className='attribute'>
-                {votes}
-                <i className="bi bi-arrow-up"/>
-                <i className="bi bi-arrow-down"/>
-            </p>
-            <p className='attribute'>
-                {post.author}
-                <i className="bi bi-person"/>
-            </p>
-            <p className='attribute'>
-                {timeAgo}
-                <i className="bi bi-clock"/>
-            </p>
-            <p className='attribute'>
-                {post.num_comments}
-                <i className="bi bi-chat-square"/>
-            </p>
+    const onHandleVote = (newValue) => {
+        if (newValue === voteValue) {
+          setVoteValue(0);
+        } else if (newValue === 1) {
+          setVoteValue(1);
+        } else {
+          setVoteValue(-1);
+        }
+      };
+    
+
+    return (
+      <div className="post">
+        <Link
+          className="post-subreddit"
+          to={`/${post.subreddit_name_prefixed}`}
+        >
+          <p>{post.subreddit_name_prefixed}</p>
+        </Link>
+        <Link className="post-title" to={post.permalink}>
+          <h5>{post.title}</h5>
+        </Link>
+        <div className="content">{content}</div>
+
+        <div className="flex-row">
+          <p className="attribute">
+            {votes}
+            <span onClick={() => onHandleVote(1)} >
+              <i className={`bi bi-arrow-up ${
+                voteValue === 1 && 'active'
+                }`}/>
+            </span>
+            <span onClick={() => onHandleVote(-1)}>
+              <i className={`bi bi-arrow-down ${
+                voteValue === -1 && 'active'
+                }`}/>
+            </span>
+          </p>
+          <p className="attribute">
+            {post.author}
+            <i className="bi bi-person" />
+          </p>
+          <p className="attribute">
+            {timeAgo}
+            <i className="bi bi-clock" />
+          </p>
+          <p className="attribute">
+            {post.num_comments}
+            <i className="bi bi-chat-square" />
+          </p>
         </div>
-    </div>
-    )
+      </div>
+    );
 };
