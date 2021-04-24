@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Post = ({ post, type }) => {
+export const Post = ({ post }) => {
     let votes;
     if (post.ups > 1000) {
         votes = `${Math.round(post.ups/1000)}K`
@@ -74,11 +74,11 @@ export const Post = ({ post, type }) => {
             )
             break;
         case 'self':
-            if (type !== 'detail-view') {
+            /* if (type !== 'detail-view') {
                 content = (<p >{`${post.selftext.substring(0,200)}...`}</p>)
-            } else {
+            } else { */
                 content = (<p >{post.selftext}</p>)
-            }
+            /* } */
             break;
         default: 
             break;
