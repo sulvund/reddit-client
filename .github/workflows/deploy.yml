@@ -5,12 +5,30 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     name: Deploying to surge
+
     steps:
+      # Checkout repository
       - uses: actions/checkout@v1
-      - name: Install surge and fire deployment
+
+      # Install node version 8
+      - name: Install node
         uses: actions/setup-node@v1
         with:
           node-version: 8
+
+       # Install npm packages
+      - name: Install packages
+        run: npm install
+
+      # Build react app
+      - name: Build the app
+        run: npm run build
+
+      # Install Surge 
+      - name: Install Surge
       - run: npm install -g surge
-      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+      # Deploy to the defined URL using the token
+      - run: surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
