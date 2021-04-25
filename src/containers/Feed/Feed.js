@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatedList } from "react-animated-list";
 import { Button } from 'react-bootstrap';
-import { /* selectPosts, isLoading, hasError, selectSearchTerm, */ setSubreddit, fetchFeed } from './feedSlice';
+import { setSubreddit, fetchFeed, fetchComments, toggleShowComments } from './feedSlice';
 import { PostLoading } from "../Post/PostLoading";
 import { Post } from '../Post/Post';
 import { useParams } from 'react-router-dom';
@@ -25,10 +25,10 @@ export const Feed = () => {
             <div id='feed'>
                 <AnimatedList animation='zoom'>
                     {[
-                        <PostLoading/>,
-                        <PostLoading/>,
-                        <PostLoading/>,
-                        <PostLoading/>
+                        <PostLoading key='1'/>,
+                        <PostLoading key='2'/>,
+                        <PostLoading key='3'/>,
+                        <PostLoading key='4'/>,
                     ]}
                 </AnimatedList>
             </div>
@@ -58,14 +58,24 @@ export const Feed = () => {
             </Button>
           </div>
         );
-      }
+    }
+    
+    const onToggleComments = (index) => {
+        const getComments = (permalink) => {
+        // dispatch(toggleShowComments(index))
+        dispatch(fetchComments(index, permalink));
+        };
+
+    return getComments;
+    };
     
     return (
         <div id='feed'>
-            {posts.map(post => (
+            {posts.map((post, index) => (
                 <Post 
-                    key={post.data.id} 
-                    post={post.data}
+                    key={post.id} 
+                    post={post}
+                    onToggleComments={onToggleComments(index)}
                 />
             ))}
         </div>

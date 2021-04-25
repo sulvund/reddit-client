@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Comments } from "../Comments/Comments";
+import { AnimatedList } from "react-animated-list";
+import { Comment } from "../Comment/Comment";
+import { CommentLoading } from "../Comment/CommentLoading";
 
-export const Post = ({ post }) => {
+export const Post = ({ post, onToggleComments }) => {
     let votes;
     if (post.ups > 1000) {
         votes = `${Math.round(post.ups/1000)}K`
@@ -98,11 +100,35 @@ export const Post = ({ post }) => {
     };
     
     const renderComments = () => {
-      return (
-        <div>
-          <Comments /> 
-        </div>
-      )
+      if (post.loadingComments) {
+        return (
+          <AnimatedList animation='zoom'>
+            {[
+              <CommentLoading />,
+              <CommentLoading />,
+              <CommentLoading />
+            ]}
+          </AnimatedList>
+        )
+      }
+
+      if (post.loadingComments) {
+        return (
+          <p className='center'>An error occured</p>
+        )
+      }
+
+      if (post.showComments) {
+        return (
+          <div className='comment-section'>
+            {post.comments.map((comment) => (
+              <Comment comment={comment} key={comment.id} />
+            ))}
+          </div>
+        )
+      }
+
+      return null;
     }
 
     return (
@@ -140,7 +166,7 @@ export const Post = ({ post }) => {
             {timeAgo}
             <i className="bi bi-clock" />
           </p>
-          <p className="attribute">
+          <p className="attribute" onClick={() => onToggleComments(post.permalink)}>
             {post.num_comments}
             <i className="bi bi-chat-square" />
           </p>

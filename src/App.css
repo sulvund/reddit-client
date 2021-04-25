@@ -102,3 +102,7 @@ img {
   color: var(--dark-grey);
   font-size: small;
 }
+
+.comment-section {
+  margin-top: 20px;
+}
