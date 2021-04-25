@@ -166,7 +166,7 @@ export const Post = ({ post, onToggleComments }) => {
             {timeAgo}
             <i className="bi bi-clock" />
           </p>
-          <p className="attribute" onClick={() => onToggleComments(post.permalink)}>
+          <p className="attribute" onClick={()=>onToggleComments(post.permalink)}>
             {post.num_comments}
             <i className="bi bi-chat-square" />
           </p>

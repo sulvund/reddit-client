@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatedList } from "react-animated-list";
 import { Button } from 'react-bootstrap';
-import { setSubreddit, fetchFeed, fetchComments, toggleShowComments } from './feedSlice';
+import { setSubreddit, fetchFeed, fetchComments } from './feedSlice';
 import { PostLoading } from "../Post/PostLoading";
 import { Post } from '../Post/Post';
 import { useParams } from 'react-router-dom';
@@ -19,7 +19,6 @@ export const Feed = () => {
         dispatch(setSubreddit(`r/${subredditURL}`));
     }, [dispatch, subredditURL, searchTerm])
 
-    /* [<p className='center'>Loading posts</p>] */
     if (isLoading) {
         return (
             <div id='feed'>
@@ -62,7 +61,6 @@ export const Feed = () => {
     
     const onToggleComments = (index) => {
         const getComments = (permalink) => {
-        // dispatch(toggleShowComments(index))
         dispatch(fetchComments(index, permalink));
         };
 
