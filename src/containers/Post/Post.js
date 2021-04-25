@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Comments } from "../Comments/Comments";
 
 export const Post = ({ post }) => {
     let votes;
@@ -98,7 +99,9 @@ export const Post = ({ post }) => {
     
     const renderComments = () => {
       return (
-        <p>test render</p>
+        <div>
+          <Comments /> 
+        </div>
       )
     }
 
