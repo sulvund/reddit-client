@@ -3,6 +3,16 @@
   --dark-grey: #54595E;
 }
 
+.layout {
+  display: flex;
+  justify-content: center;
+}
+
+/* .aside {
+  justify-self: end;
+  width: 100px;
+} */
+
 #navbar {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
   z-index: 1;

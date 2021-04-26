@@ -4,7 +4,9 @@ import { AnimatedList } from "react-animated-list";
 import { Comment } from "../Comment/Comment";
 import { CommentLoading } from "../Comment/CommentLoading";
 
+// component for rendering individual reddit posts
 export const Post = ({ post, onToggleComments }) => {
+    // handle votes from json
     let votes;
     if (post.ups > 1000) {
         votes = `${Math.round(post.ups/1000)}K`
@@ -12,6 +14,20 @@ export const Post = ({ post, onToggleComments }) => {
         votes = post.ups;
     }
 
+    // handle the users vote
+    const [voteValue, setVoteValue ] = useState(0);
+
+    const onHandleVote = (newValue) => {
+      if (newValue === voteValue) {
+        setVoteValue(0);
+      } else if (newValue === 1) {
+        setVoteValue(1);
+      } else {
+        setVoteValue(-1);
+      }
+    };
+
+    // handle time since posted
     const created = new Date(post.created_utc * 1000);
     const now = new Date();
     const createdHours = (now - created) / (1000 * 60 * 60)
@@ -29,11 +45,13 @@ export const Post = ({ post, onToggleComments }) => {
         timeAgo = `${Math.round(createdHours)} hours ago`;
     }
 
+    // handle different types of posts
     let content;
     switch (post.post_hint) {
         case 'image':
             content = (<img src={post.url} alt={post.title}></img>)
             break;
+
         case 'link':
             let link;
             if (post.url.length > 40) {
@@ -56,6 +74,7 @@ export const Post = ({ post, onToggleComments }) => {
                 </>
             )
             break;
+
         case 'hosted:video':
             content = (
                 <video width="100%" height="auto" controls>
@@ -63,6 +82,7 @@ export const Post = ({ post, onToggleComments }) => {
                 </video>
             )
             break;
+
         case 'rich:video':
             content = (
                 <iframe
@@ -76,29 +96,15 @@ export const Post = ({ post, onToggleComments }) => {
                 </iframe>
             )
             break;
+
         case 'self':
-            /* if (type !== 'detail-view') {
-                content = (<p >{`${post.selftext.substring(0,200)}...`}</p>)
-            } else { */
                 content = (<p >{post.selftext}</p>)
-            /* } */
             break;
         default: 
             break;
     }
-
-    const [voteValue, setVoteValue ] = useState(0);
-
-    const onHandleVote = (newValue) => {
-      if (newValue === voteValue) {
-        setVoteValue(0);
-      } else if (newValue === 1) {
-        setVoteValue(1);
-      } else {
-        setVoteValue(-1);
-      }
-    };
     
+    // handle comments
     const renderComments = () => {
       if (post.loadingComments) {
         return (
@@ -112,7 +118,7 @@ export const Post = ({ post, onToggleComments }) => {
         )
       }
 
-      if (post.loadingComments) {
+      if (post.errorComments) {
         return (
           <p className='center'>An error occured</p>
         )
@@ -128,20 +134,20 @@ export const Post = ({ post, onToggleComments }) => {
         )
       }
 
+      // if none of the above
       return null;
     }
 
     return (
       <div className="post">
-        <Link
-          className="post-subreddit"
-          to={`/${post.subreddit_name_prefixed}`}
-        >
+        <Link className="post-subreddit" to={`/${post.subreddit_name_prefixed}`}>
           <p>{post.subreddit_name_prefixed}</p>
         </Link>
-        <Link className="post-title" to={post.permalink}>
+
+        <div className="post-title">
           <h5>{post.title}</h5>
-        </Link>
+        </div>
+
         <div className="content">{content}</div>
 
         <div className="flex-row">
@@ -158,14 +164,17 @@ export const Post = ({ post, onToggleComments }) => {
                 }`}/>
             </span>
           </p>
+
           <p className="attribute">
             {post.author}
             <i className="bi bi-person" />
           </p>
+
           <p className="attribute">
             {timeAgo}
             <i className="bi bi-clock" />
           </p>
+          
           <p className="attribute" onClick={()=>onToggleComments(post.permalink)}>
             {post.num_comments}
             <i className="bi bi-chat-square" />

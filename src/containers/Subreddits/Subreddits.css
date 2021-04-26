@@ -1,0 +1,17 @@
+.subreddits {
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 20px;
+    padding-right: 50px;
+
+    background-color: #F8F9FA;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+}
+
+.subreddit:link, .subreddit:visited, .subreddit:hover, .subreddit:active  {
+    color: black;
+}
+.subreddits-container {
+    margin-bottom: 10px;
+}

@@ -23,13 +23,7 @@ export const Header = () => {
     dispatch(
       setSearchTerm(searchTermLocal)
     );
-    setSearchTerm('');
-  }
-
-  const handleKeyPress = (e) => {
-    if(e.key === "Enter"){
-      handleSearchSubmit(e);
-    }
+    setSearchTermLocal('');
   }
 
   return (
@@ -48,7 +42,7 @@ export const Header = () => {
                 placeholder="Search"
                 className=""
                 value={searchTermLocal}
-                onKeyPress={handleKeyPress}
+                onKeyPress={(e) => {if(e.key === "Enter"){handleSearchSubmit(e)}}}
                 onChange={(e) => setSearchTermLocal(e.currentTarget.value)}
               ></FormControl>
             </Col>

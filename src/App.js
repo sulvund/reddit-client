@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import "./App.css";
 import { Header } from './containers/Header/Header'
 import { Feed } from './containers/Feed/Feed'
+import { Subreddits } from './containers/Subreddits/Subreddits'
 
 const App = () => {
   return (
@@ -11,7 +12,12 @@ const App = () => {
       <Switch>
           <Redirect exact from="/" to="/r/pics" />
           <Route path="/r/:subredditURL">
+            <div className='layout'>
               <Feed />
+              <span className='aside'>
+                <Subreddits/>
+              </span>
+            </div>
           </Route>
           <Route path="*">
             <p className='center'>404 - could not be found</p>

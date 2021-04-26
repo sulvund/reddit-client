@@ -13,7 +13,7 @@ export const fetchFeed = createAsyncThunk(
         }
 
         const response = await fetch(`https://www.reddit.com/${subreddit}${slug}`);
-        const json = await response.json()
+        const json = await response.json();
         const posts = json.data.children.map((post) => post.data);
         const postsWithMetadata = posts.map((post) => ({
             ...post,
