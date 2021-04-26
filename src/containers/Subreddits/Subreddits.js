@@ -16,11 +16,11 @@ export const Subreddits = () => {
     const error = useSelector(hasError)
 
     if (loading) {
-        return (<p>loading</p>)
+        return (<p className='subreddits'>Loading subreddits</p>)
     }
 
     if (error) {
-        return (<p>error</p>)
+        console.log('Could not fetch subreddits');
     }
 
     return (
