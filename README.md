@@ -1,8 +1,10 @@
 # RedditMono Client
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/816e8903-e707-4235-9ff2-2c7cf2d41551/deploy-status)](https://app.netlify.com/sites/redditmono/deploys)
+
 This is a Codecademy portfolio project showcasing the various languages, techniques and patterns taught in the Front-End part of the Full-Stack Engineering path.
 
-Visit the live version of [RedditMono](https://redditmono.surge.sh/)
+Visit the live version of [RedditMono](https://redditmono.netlify.app/)
 
 ## Wireframes
 
@@ -18,7 +20,7 @@ Designed in Figma with the Bootstrap UI Kit template
 * React
 * Redux
 * Bootstrap
-* Surge (automatic deployment using Github Actions)
+* Netlify
 
 ## Features
 
